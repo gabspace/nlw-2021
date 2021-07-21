@@ -18,7 +18,7 @@ export function ensureAuthenticated(request: Request, response: Response, next: 
   //Validar se token é válido
   const [, token] = authToken.split(" ");
   try {
-    const { sub } = verify(token, "7a86bb2f1c32fa4345c1f0e6ce44f5ed") as IPayload;
+    const { sub } = verify(token, "api key") as IPayload;
     request.user_id = sub;
 
     return next();
